@@ -119,13 +119,13 @@ namespace POM.Pages
             
 
         }
-        public void move_sliders(string present, string target_value, string HI) //moves the slider of sorrounding volume bar
+                public void move_sliders(string present, string target_value, string HI) //moves the slider of sorrounding volume bar
         {
             TouchAction action = new TouchAction(driver);
-            int y = 1698;
+            int y;
             int present_pos;
             int target_pos;
-            present_pos = GetCoordinates(present);
+            
             target_pos = GetCoordinates(target_value);
             try
             {
@@ -133,10 +133,16 @@ namespace POM.Pages
                 {
                     case "RIGHT HI":
                         y = 1698;
+                        AndroidElement right = driver.FindElement(Rightslider);
+                        present_pos = right.Location.X;
+                        present_pos = present_pos + 35;
                         action.Press(present_pos, y).MoveTo(target_pos, y).Release().Perform();
                         break;
                     case "LEFT HI" or "HI":
                         y = 1846;
+                        AndroidElement left = driver.FindElement(Left_slider);
+                        present_pos = left.Location.X;
+                        present_pos = present_pos + 35;
                         action.Press(present_pos, y).MoveTo(target_pos, y).Release().Perform();
                         break;
                 }
@@ -147,7 +153,7 @@ namespace POM.Pages
                 ExtentReporting.log("Fail", "Failed to move slider"+ex.Message, screenshot_loc);
             }
             
-        }      
+        } 
         public void click_merge() //performs merging of sorrounding volume bar
         {
             try
