@@ -119,7 +119,7 @@ namespace POM.Pages
             
 
         }
-                public void move_sliders(string present, string target_value, string HI) //moves the slider of sorrounding volume bar
+        public void move_sliders(string present, string target_value, string HI) //moves the slider of sorrounding volume bar
         {
             TouchAction action = new TouchAction(driver);
             int y;
