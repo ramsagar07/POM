@@ -9,13 +9,13 @@ Scenario: All-Around Program
 	When  i press split sourruounding volume on 'All-Around' program
 	Then i validate "Right HI" volume is '9'
 	And i validate "Left HI" volume is '9'
-	When i set "Right HI" sourrounding volume to "3" from "9" of All-Around program 
-	And i set "Left HI" sourrounding volume to "10" from "9" of All-Around program 
+	When i set "Right HI" sourrounding volume to "3" of All-Around program 
+	And i set "Left HI" sourrounding volume to "10" of All-Around program 
 	Then i validate "Right HI" volume is '3'
 	And i validate "Left HI" volume is '10'
 	When  i press merge sourrounding voulume on All-Around program
 	Then i validate "HI" volume is '3'
-	When i set "HI" sourrounding volume to "13" from "3" of All-Around program
+	When i set "HI" sourrounding volume to "13" of All-Around program
 	Then i validate "HI" volume is '13'
 	When i press 'Speech Clarity' quick button on 'All-Around' Program
 	Then validate 'Speech Clarity' quick button is enabled on 'All-Around' Program
@@ -26,9 +26,9 @@ Scenario: All-Around Program
 	Then validate 'Speech clarity' quick button is enabled on 'All-Around' Program
 	And validate 'Noise filter' quick button is disabled on 'All-Around' program
 	When i press Sound Enhancer button on 'All Around' program
-	And i set 'Bass gain' to '4' from '0' on All-Around Sound Enhancer
-	And i set 'Middle gain' to '-3' from '0' on All-Around Sound Enhancer
-	And i set 'Treble gain' to '5' from '0' on All-Around Sound Enhancer
+	And i set 'Bass gain' to '4' on All-Around Sound Enhancer
+	And i set 'Middle gain' to '-3' on All-Around Sound Enhancer
+	And i set 'Treble gain' to '5' on All-Around Sound Enhancer
 	Then i validate "Bass gain" is "4" on All-Around Sound Enhancer
 	And  i validate "Middle gain" is "-3" on All-Around Sound Enhancer
 	And i validate "Treble gain" is "5" on All-Around Sound Enhancer
