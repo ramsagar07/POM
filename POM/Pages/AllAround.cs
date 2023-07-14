@@ -119,7 +119,7 @@ namespace POM.Pages
             
 
         }
-        public void move_sliders(string present, string target_value, string HI) //moves the slider of sorrounding volume bar
+        public void move_sliders(string HI, string target_value) //moves the slider of sorrounding volume bar
         {
             TouchAction action = new TouchAction(driver);
             int y;
@@ -236,7 +236,7 @@ namespace POM.Pages
                 ExtentReporting.log("FAIL", "The quick button is expected to be not selected but it is selected"+e.Message, screenshot_loc);
             }
         }
-        public void MoveGainSliders(string gain_type, string target_value, string present) //Moves the slider of sound enhancer to desired value
+        public void MoveGainSliders(string gain_type, string target_value) //Moves the slider of sound enhancer to desired value
         {
             int x_co;
             int start_y_co;
