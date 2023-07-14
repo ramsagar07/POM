@@ -39,7 +39,7 @@ Scenario: All-Around Program
 	When i swipe 'left' to 'Hear in noise' program from current program
 	Then i validate program card is "Hear in noise"
 	When i press Sound Enhancer button on 'Hear in noise' program
-    And i press 'Tinnitus Manager' on 'Hear in noise' Sound Enhancer
+        And i press 'Tinnitus Manager' on 'Hear in noise' Sound Enhancer
 	And i press white noise button 'Slight variation' on 'Hear in noise' Tinnitus Manager
 	When i press 'Reset' button on All-Around Tinnitus Manager
 	When i press the exit button on 'Hear in noise' Sound Enhancer
@@ -65,12 +65,12 @@ Scenario: All-Around Program
 	When i press 'All-Around' program on Program overview
 	When i press the 'Close' button on Program overview
 	When i press menu item 'My ReSound' on bottom ribbon bar
-    And I press 'Learn about the app' on My ReSound
+        And I press 'Learn about the app' on My ReSound
 	When I press 'Volume control' on Learn about the app
 	And I swipe 'left' to '2 / 3' page on Learn about the app
 	Then validate 'Left and right volume' animation is shown on Volume control
 	When I swipe 'left' to '3 / 3' page on Learn about the app
-    Then  validate 'Mute' animation is shown on Volume control
+        Then  validate 'Mute' animation is shown on Volume control
 	When I close on Learn about the app and back to My Resound page
 	And I press 'Guiding tips' on My ReSound
 	When I press 'OK' on 'Please notice' dialog
@@ -100,12 +100,12 @@ Scenario: All-Around Program
 	Then I validate page title is displayed on 'Terms and Conditions' page
 	When I press 'back' from 'Terms and Conditions' page
 	And I press Legal information item 'PRIVACY POLICY'
-    Then I validate page title is displayed on 'PRIVACY POLICY' page
+        Then I validate page title is displayed on 'PRIVACY POLICY' page
 	Then validate html view is displayed on 'PRIVACY POLICY' page
 	When I press 'back' from 'PRIVACY POLICY' page 
 	And I press 'back' from 'Legal information' page
 	And I press more menu item 'Support'
-    Then I validate page title is displayed on 'Support' page
+        Then I validate page title is displayed on 'Support' page
 	And validate html view is displayed on 'Support' page
 	When I press back from 'Support' page
 	And i press menu item 'Home' on bottom ribbon bar
