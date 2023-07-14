@@ -74,8 +74,6 @@ namespace POM.Utility
         }
         public static void log(String Result, String desc, string location) //used for logging to extent report
         {
-            var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
-
             switch (Result.ToUpper().Trim())
             {
                 case "PASS":
