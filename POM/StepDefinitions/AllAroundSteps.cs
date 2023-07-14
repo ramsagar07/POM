@@ -100,11 +100,6 @@ namespace POM.StepDefinitions
         {
             allaround.PressNatureWaves(wave_type);
         }
-       /* [When(@"i swipe '([^']*)' to Hear in Noise")]
-        public void WhenISwipeToHearInNoise(string left)
-        {
-            allaround.Swipeleft();
-        }*/
         [Then(@"i validate program card is ""([^""]*)""")]
         public void ThenIValidateProgramCardIs(string title)
         {
