@@ -25,21 +25,21 @@ namespace POM.Hooks
         }
 
         [BeforeTestRun]
-        public static void BeforeTestRun()
+        public static void BeforeTestRun() //intilizes extent report
         {
             ExtentReportInit();
         }
         [AfterTestRun]
-        public static void AfterTestRun()
+        public static void AfterTestRun()  //Generates final report
         {
             ExtentReportTeardown();
         }
         [BeforeFeature]
-        public static void BeforeFeature(FeatureContext featureContext)
+        public static void BeforeFeature(FeatureContext featureContext) // adds feature name to Extent report
         {
             _feature = _extentReports.CreateTest<Feature>(featureContext.FeatureInfo.Title);
         }
-        [BeforeScenario]
+        [BeforeScenario]  //Adds scenario name to  extent report and initilises driver
         public void BeforeScenarioWithTag(ScenarioContext scenarioContext)
         {
             By demo = By.Id("dk.resound.smart3d:id/demo_button");
@@ -106,7 +106,7 @@ namespace POM.Hooks
         }
 
 
-        [BeforeStep]
+        [BeforeStep] //Adds step name to extent report
         public void BeforeStep(ScenarioContext scenarioContext)
         {
             AddStep(scenarioContext);
