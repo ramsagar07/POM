@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium;
 using POM.Pages;
@@ -32,8 +32,8 @@ namespace POM.StepDefinitions
         {
             this.driver = driver;
         }
-        [Given(@"I am on ""([^""]*)"" page and i validate the program card is ""([^""]*)""")]
-        public void GivenIAmOnPageAndIValidateTheProgramCardIs(string p0, string title) //Validates the title of program card All-Around
+        [Given(@"I am on All-Around page and i validate the program card is ""([^""]*)""")]
+        public void GivenIAmOnPageAllAroundAndIValidateTheProgramCardIs(string title) //Validates the title of program card All-Around
         {
             allaround = new AllAround(driver);
             allaround.VerifyModeName(title);
@@ -41,8 +41,8 @@ namespace POM.StepDefinitions
         }
 
         
-        [When(@"i press split sourruounding volume on '([^']*)' program")]//presses the split button on All-Around
-        public void WhenIPressSplitSourruoundingVolumeOnProgram(string p0)
+        [When(@"i press split sourruounding volume on All-Around program")]//presses the split button on All-Around
+        public void WhenIPressSplitSourruoundingVolumeOnAllAroundProgram()
         {
             allaround.PressSplitButton();
         }
@@ -56,44 +56,42 @@ namespace POM.StepDefinitions
         {
             allaround.move_sliders(hI, target);
         }
+
         [When(@"i press merge sourrounding voulume on All-Around program")]
         public void WhenIPressMergeSourroundingVoulumeOnAll_AroundProgram()
         {
             allaround.click_merge();
         }
 
-        [When(@"i press '([^']*)' quick button on '([^']*)' Program")]
-        public void WhenIPressQuickButtonOnProgram(string p0, string p1)
+        [When(@"i press '([^']*)' quick button on All-Around Program")]
+        public void WhenIPressQuickButtonOnAllAroundProgram(string buttonname)
         {
-            allaround.clickquickbutton(p0);
+            allaround.clickquickbutton(buttonname);
         }
 
-        [Then(@"validate '([^']*)' quick button is enabled on '([^']*)' Program")]
-        public void ThenIvalidateQuickButtonIsEnabledOnProgram(string p0, string p1)
+        [Then(@"validate '([^']*)' quick button is enabled on All-Around Program")]
+        public void ThenIvalidateQuickButtonIsEnabledOnAllAroundProgram(string button)
         {
-            allaround.isenabled(p0);
+            allaround.isenabled(button);
         }
 
-        [Then(@"validate '([^']*)' quick button is disabled on '([^']*)' program")]
-        public void ThenValidateQuickButtonIsDisabledOnProgram(string p0, string p1)
+        [Then(@"validate '([^']*)' quick button is disabled on All-Around program")]
+        public void ThenValidateQuickButtonIsDisabledOnAllAroundProgram(string button)
         {
-            allaround.isdiabled(p0);
+            allaround.isdiabled(button);
         }
         [When(@"i set '([^']*)' to '([^']*)' on All-Around Sound Enhancer")]
         public void WhenISetToOnAll_AroundSoundEnhancer(string gain, string target)
         {
             allaround.MoveGainSliders(gain, target);
         }
+
         [Then(@"i validate ""([^""]*)"" is ""([^""]*)"" on All-Around Sound Enhancer")]
         public void ThenIValidateIsOnAll_AroundSoundEnhancer(string gain, string value)
         {
             allaround.ValidateGainValue(gain, value);
         }
-        [When(@"i press Tinnitus Manager on All-Around Sound Enhancer")]
-        public void WhenIPressTinnitusManagerOnAll_AroundSoundEnhancer()
-        {
-            allaround.pressTinnitusManager();
-        }
+        
 
         [When(@"i press Nature sounds button ""([^""]*)"" on All-Around Tinnitus Manager")]
         public void WhenIPressNatureSoundsButtonOnAll_AroundTinnitusManager(string wave_type)
@@ -143,19 +141,28 @@ namespace POM.StepDefinitions
             }
         }
 
-        [When(@"i press '([^']*)' on '([^']*)' Sound Enhancer")]
-        public void WhenIPressOnSoundEnhancer(string p0, string p1)
+        [When(@"i press Tinnitus Manager on '([^']*)' Sound Enhancer")]
+        public void WhenIPressOnSoundEnhancer(string program)
         {
-            hearinnoise.pressTinnitusManager();
+            switch(program.ToUpper())
+            {
+                case "HEAR IN NOISE":
+                    hearinnoise.pressTinnitusManager();
+                    break;
+                case "ALL AROUND":
+                    allaround.pressTinnitusManager();
+                    break;
+
+            }
         }
-        [When(@"i press white noise button '([^']*)' on '([^']*)' Tinnitus Manager")]
-        public void WhenIPressWhiteNoiseButtonOnTinnitusManager(string p0, string p1)
+        [When(@"i press white noise button Slight variation on Hear in noise Tinnitus Manager")]
+        public void WhenIPressWhiteNoiseButtonSlightVariationOnTinnitusManager()
         {
             hearinnoise.pressSlightvariation();
         }
 
-        [When(@"i press '([^']*)' button on All-Around Tinnitus Manager")]
-        public void WhenIPressButtonOnAll_AroundTinnitusManager(string reset)
+        [When(@"i press Reset button on All-Around Tinnitus Manager")]
+        public void WhenIPressResetButtonOnAll_AroundTinnitusManager()
         {
             hearinnoise.pressReset();
         }
@@ -179,8 +186,8 @@ namespace POM.StepDefinitions
            
         }
 
-        [When(@"i swipe '([^']*)' to '([^']*)' program from current program")]
-        public void WhenISwipeToProgramFromCurrentProgram(string left, string program)
+        [When(@"i swipe left to '([^']*)' program from current program")]
+        public void WhenISwipeToProgramFromCurrentProgram(string program)
         {
             switch(program.ToUpper())
             {
@@ -198,8 +205,8 @@ namespace POM.StepDefinitions
 
 
        
-        [When(@"i drag Wind Noise Reduction to '([^']*)' on '([^']*)' Sound Enhancer")]
-        public void WhenIDragWindNoiseReductionToOnSoundEnhancer(string strong, string program)
+        [When(@"i drag Wind Noise Reduction to Strong on Outdoor Sound Enhancer")]
+        public void WhenIDragWindNoiseReductionToStrongOnOutdoorSoundEnhancer()
         {
             outdoor.set_wind_noiseReductionToStorng();
         }
@@ -222,8 +229,8 @@ namespace POM.StepDefinitions
             programOverView.press_program(program);
         }
 
-        [When(@"i press the '([^']*)' button on Program overview")]
-        public void WhenIPressTheButtonOnProgramOverview(string close)
+        [When(@"i press the Close button on Program overview")]
+        public void WhenIPressTheCloseButtonOnProgramOverview()
         {
            programOverView.press_Close();
         }
@@ -250,14 +257,14 @@ namespace POM.StepDefinitions
             myresound.press_program(function);
 
         }
-        [When(@"I press '([^']*)' on Learn about the app")]
-        public void WhenIPressOnLearnAboutTheApp(string p0)
+        [When(@"I press Volume control on Learn about the app")]
+        public void WhenIPressVolumecontrolOnLearnAboutTheApp()
         {
             learnAboutApp = new LearnAboutApp(driver);
             learnAboutApp.clickvolumeControl();
         }
-        [When(@"I swipe '([^']*)' to '([^']*)' page on Learn about the app")]
-        public void WhenISwipeToPageOnLearnAboutTheApp(string left, string page)
+        [When(@"I swipe left to '([^']*)' page on Learn about the app")]
+        public void WhenISwipeLeftToPageOnLearnAboutTheApp(string page)
         {
             learnAboutApp.swipeleft(page);
         }
@@ -271,8 +278,8 @@ namespace POM.StepDefinitions
         {
            learnAboutApp.pressclose();
         }
-        [When(@"I press '([^']*)' on '([^']*)' dialog")]
-        public void WhenIPressOnDialog(string prog, string p1)
+        [When(@"I press '([^']*)' on Please notice dialog")]
+        public void WhenIPressOnDialog(string prog)
         {
             guidingTips = new GuidingTips(driver);
             guidingTips.Press(prog);
@@ -289,24 +296,24 @@ namespace POM.StepDefinitions
         }
 
         [When(@"I press '([^']*)' on '([^']*)' nudging dialog")]
-        public void WhenIPressOnNudgingDialog(string gotit, string p1)
+        public void WhenIPressOnNudgingDialog(string gotit, string program)
         {
             guidingTips.Press(gotit);
         }
 
-        [When(@"I press '([^']*)' on bottom ribbon bar and back to '([^']*)' on My Resound")]
-        public void WhenIPressOnBottomRibbonBarAndBackToOnMyResound(string program, string p1)
+        [When(@"I press '([^']*)' on bottom ribbon bar and back to Guiding tips on My Resound")]
+        public void WhenIPressOnBottomRibbonBarAndBackToOnMyResound(string program)
         {
             guidingTips.Press(program);
         }
-        [Then(@"validate '([^']*)' button enabled on '([^']*)' nudging dialog")]
-        public void ThenValidateButtonEnabledOnNudgingDialog(string name, string p1)
+        [Then(@"validate '([^']*)' button enabled on Music program nudging dialog")]
+        public void ThenValidateButtonEnabledOnNudgingDialog(string name)
         {
             guidingTips.ValidateEnabled(name);
         }
 
-        [Then(@"validate '([^']*)' switch is '([^']*)'")]
-        public void ThenValidateSwitchIs(string p0, string on_off)
+        [Then(@"validate Auto-activate favorite locations switch is '([^']*)'")]
+        public void ThenValidateSwitchIs(string on_off)
         {
             more = new More(driver);
             more.ValidateOnOff(on_off);
