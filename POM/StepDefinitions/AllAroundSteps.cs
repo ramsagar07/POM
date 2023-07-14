@@ -79,10 +79,10 @@ namespace POM.StepDefinitions
         {
             allaround.isdiabled(p0);
         }
-        [When(@"i set '([^']*)' to '([^']*)' from '([^']*)' on All-Around Sound Enhancer")]
-        public void WhenISetToFromOnAll_AroundSoundEnhancer(string gain, string target, string present)
+        [When(@"i set '([^']*)' to '([^']*)' on All-Around Sound Enhancer")]
+        public void WhenISetToOnAll_AroundSoundEnhancer(string gain, string target)
         {
-            allaround.MoveGainSliders(gain, target, present);
+            allaround.MoveGainSliders(gain, target);
         }
         [Then(@"i validate ""([^""]*)"" is ""([^""]*)"" on All-Around Sound Enhancer")]
         public void ThenIValidateIsOnAll_AroundSoundEnhancer(string gain, string value)
