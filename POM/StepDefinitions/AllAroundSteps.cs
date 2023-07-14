@@ -51,10 +51,10 @@ namespace POM.StepDefinitions
         {
             allaround.ValidateHI_Value(HI, value);
         }
-        [When(@"i set ""([^""]*)"" sourrounding volume to ""([^""]*)"" from ""([^""]*)"" of All-Around program")]
-        public void WhenISetSourroundingVolumeToFromOfAll_AroundProgram(string HI, string target, string present)
+        [When(@"i set ""([^""]*)"" sourrounding volume to ""([^""]*)"" of All-Around program")]
+        public void WhenISetSourroundingVolumeToOfAll_AroundProgram(string hI, string target)
         {
-            allaround.move_sliders(present, target, HI);
+            allaround.move_sliders(hI, target);
         }
         [When(@"i press merge sourrounding voulume on All-Around program")]
         public void WhenIPressMergeSourroundingVoulumeOnAll_AroundProgram()
