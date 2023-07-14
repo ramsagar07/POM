@@ -126,7 +126,7 @@ namespace POM.Support
                 ExtentReporting.log("Fail", $"The Program {program} is not pressed as " + ex.Message, screenshot_loc);
             }
         }
-        public void ValidatePageTitleDisplayed(string page)
+        public void ValidatePageTitleDisplayed(string page)// validates page title is displayed of legal information contents
         {
             try
             {
@@ -142,7 +142,7 @@ namespace POM.Support
                 ExtentReporting.log("Fail", ex.Message, screenshot_loc);
             }
         }
-        public void ValidateHtmlView()
+        public void ValidateHtmlView() //validtes if html view of page is displayed
         {
             bool status = driver.FindElement(html_view).Displayed;
             Assert.IsTrue(status);
